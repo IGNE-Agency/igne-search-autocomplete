@@ -1,6 +1,6 @@
 {
   "name": "@igne-agency/igne-search-autocomplete",
-  "version": "8.5.3",
+  "version": "8.5.4",
   "description": "A search box for React",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
