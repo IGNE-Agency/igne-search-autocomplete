@@ -129,6 +129,18 @@ export default function ReactSearchAutocomplete<T>({
     setHasFocus(true)
   }
 
+  const handleOnEnter = (event) => {
+    event.preventDefault();
+    
+    if (results.length > 0) {
+      const firstResult = results[0];
+      onSelect(firstResult);
+      setSearchString(firstResult[resultStringKeyName]);
+      setHighlightedItem(0);
+      eraseResults();
+    }
+  };
+  
   const callOnSearch = (keyword: string) => {
     let newResults: T[] = []
 
@@ -239,6 +251,7 @@ export default function ReactSearchAutocomplete<T>({
             showClear={showClear}
             setHighlightedItem={handleSetHighlightedItem}
             maxLength={maxLength}
+            handleOnEnter={handleOnEnter}
           />
           <Results
             results={results}
