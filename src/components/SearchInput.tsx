@@ -1,4 +1,4 @@
-import { ChangeEventHandler, FocusEvent, FocusEventHandler, useRef } from 'react'
+import { ChangeEventHandler, FocusEvent, FocusEventHandler, useRef, KeyboardEvent } from 'react'
 import styled from 'styled-components'
 import { ClearIcon } from './ClearIcon'
 import { SearchIcon } from './SearchIcon'
