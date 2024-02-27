@@ -1,19 +1,18 @@
-![travis](https://travis-ci.com/sickdyd/react-search-autocomplete.svg?branch=master)
+# About this package
+The package is based on react-search-autocomplete with a few new features like onEnter and externalSetSearchString. Since the original package has not been updated in a year, we created this one to add more functionality more quickly.
 
 ## `<ReactSearchAutocomplete>`
 
 A `<ReactSearchAutocomplete>` is a fully customizable search box where the user can type text and filter the results. It relies on [Fuse.js v6.5.3](https://fusejs.io/) for the fuzzy search. Check out their website to see the options (you can pass them to this component).
 
-[Click here to see a demo](https://sickdyd.github.io/react-search-autocomplete/).
-
-[Demo source](https://github.com/sickdyd/react-search-autocomplete/tree/demo).
+[Demo source](https://github.com/IGNE-Agency/igne-search-autocomplete/tree/demo).
 
 ### Installing
 
 ```bash
-$ npm install react-search-autocomplete
+$ npm install @igne-agency/igne-search-autocomplete
 or
-$ yarn add react-search-autocomplete
+$ yarn add @igne-agency/igne-search-autocomplete
 ```
 
 ### Exports
@@ -22,7 +21,7 @@ The default export is `<ReactSearchAutocomplete>`.
 To use it:
 
 ```js
-import { ReactSearchAutocomplete } from 'react-search-autocomplete'
+import { ReactSearchAutocomplete } from '@igne-agency/igne-search-autocomplete'
 ```
 
 ### React Search Autocomplete Usage
@@ -30,7 +29,7 @@ import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 ```js
 import React from 'react'
 import './App.css'
-import { ReactSearchAutocomplete } from 'react-search-autocomplete'
+import { ReactSearchAutocomplete } from '@igne-agency/igne-search-autocomplete'
 
 function App() {
   // note: the id field is mandatory
@@ -96,6 +95,8 @@ function App() {
             onHover={handleOnHover}
             onSelect={handleOnSelect}
             onFocus={handleOnFocus}
+            inputSearchString={searchInput}
+            externalSetSearchString={handleSearchInput}
             autoFocus
             formatResult={formatResult}
           />
