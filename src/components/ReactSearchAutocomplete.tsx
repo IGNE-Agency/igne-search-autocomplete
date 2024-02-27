@@ -39,6 +39,7 @@ export interface ReactSearchAutocompleteProps<T> {
   showItemsOnFocus?: boolean
   maxLength?: number
   className?: string
+  externalSetSearchString?: (value: string) => void
 }
 
 export default function ReactSearchAutocomplete<T>({
@@ -63,7 +64,8 @@ export default function ReactSearchAutocomplete<T>({
   showNoResultsText = 'No results',
   showItemsOnFocus = false,
   maxLength = 0,
-  className
+  className,
+  externalSetSearchString
 }: ReactSearchAutocompleteProps<T>) {
   const theme = { ...defaultTheme, ...styling }
   const options = { ...defaultFuseOptions, ...fuseOptions }
@@ -180,6 +182,10 @@ export default function ReactSearchAutocomplete<T>({
 
     if (isSearchComplete) {
       setIsSearchComplete(false)
+    }
+    
+    if (externalSetSearchString) {
+      externalSetSearchString(keyword);
     }
   }
 
