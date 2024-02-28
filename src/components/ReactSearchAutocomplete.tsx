@@ -132,14 +132,18 @@ export default function ReactSearchAutocomplete<T>({
   }
 
   const handleOnEnter = (event) => {
-    event.preventDefault();
-    
     if (results.length > 0) {
-      const firstResult = results[0];
-      onSelect(firstResult);
-      setSearchString(firstResult[resultStringKeyName]);
-      setHighlightedItem(0);
-      eraseResults();
+      // Check if any item is highlighted
+      if (highlightedItem > -1) {
+          // Select the highlighted item
+          onSelect(results[highlightedItem]);
+      } else {
+        const firstResult = results[0];
+        onSelect(firstResult);
+        setSearchString(firstResult[resultStringKeyName]);
+        setHighlightedItem(0);
+        eraseResults();
+      }
     }
   };
   
